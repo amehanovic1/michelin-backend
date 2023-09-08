@@ -1,0 +1,57 @@
+﻿@model List<SelectListItem> 
+@{
+    ViewData["Title"] = "Filtriranje";
+}
+
+<body class="backgroundimg">
+    <div class="container">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-svi-tab" asp-action="SviRecepti" asp-controller="Home">Svi recepti</a>
+                <a class="nav-item nav-link active" id="nav-svi-tab" asp-action="NajboljiRecepti" asp-controller="Home">Najbolji recepti</a>
+                <a class="nav-item nav-link active" id="nav-svi-tab" asp-action="Filtriranje" asp-controller="Recept">Pretraga recepata</a>
+            </div>
+        </nav>
+        <form method="post" asp-controller="Recept" asp-action="Filtriranje">
+            <h2 style="color:antiquewhite">Nacionalna jela</h2>
+            <input id="bos" type="checkbox" name="str" />
+            <label style="color:antiquewhite">Bosanska kuhinja </label><br />
+            <input id="it" type="checkbox" name="str" />
+            <label style="color:antiquewhite">Talijanska kuhinja </label><br />
+            <input id="fr" type="checkbox" name="str" />
+            <label style="color:antiquewhite">Francuska kuhinja </label><br />
+            <input id="mex" type="checkbox" name="str" />
+            <label style="color:antiquewhite">Meksička kuhinja </label><br />
+            <input id="kin" type="checkbox" name="str" />
+            <label style="color:antiquewhite">Kineska kuhinja </label><br />
+
+            <h2 style="color:antiquewhite">Slatka jela</h2>
+            <input id="torte" type="checkbox" name="str" />
+            <label style="color:antiquewhite">Torte</label><br />
+            <input id="kolaci" type="checkbox" name="str" />
+            <label style="color:antiquewhite">Kolači</label><br />
+
+            <h2 style="color:antiquewhite">Slana jela</h2>
+            <input id="kuhano" type="checkbox" name="str" />
+            <label style="color:antiquewhite">Kuhano </label><br />
+            <input id="przeno" type="checkbox" name="str" />
+            <label style="color:antiquewhite">Prženo </label><br />
+            <input id="rostilj" type="checkbox" name="str" />
+            <label style="color:antiquewhite">Roštilj </label><br />
+            <input id="peceno" type="checkbox" name="str" />
+            <label style="color:antiquewhite">Pečeno </label><br />
+
+            <h2 style="color:antiquewhite">Vrijeme pripreme</h2>
+            <input id="pet" type="checkbox" name="str" />
+            <label style="color:antiquewhite">do 5 min </label><br />
+            <input id="petnaest" type="checkbox" name="str" />
+            <label style="color:antiquewhite">5-15 min </label><br />
+            <input id="trideset" type="checkbox" name="str" />
+            <label style="color:antiquewhite">15-30 min </label><br />
+            <input id="cpet" type="checkbox" name="str" />
+            <label style="color:antiquewhite">30-45 min </label><br />
+            <input id="sezdeset" type="checkbox" name="str" />
+            <label style="color:antiquewhite">preko 1h </label><br />
+        </form>
+    </div>
+</body>

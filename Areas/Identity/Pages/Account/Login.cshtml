@@ -1,0 +1,55 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<body class="backgroundimg">
+    <div class="container">
+        <h1 style="color:antiquewhite">@ViewData["Title"]</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <section>
+                    <form id="account" method="post">
+                        <hr />
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="form-group">
+                            <label style="color:antiquewhite" >Korisničko ime</label>
+                            <input asp-for="Input.UserName" class="form-control" />
+                            <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label style="color:antiquewhite" >Lozinka</label>
+                            <input asp-for="Input.Password" class="form-control" />
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label style="color:antiquewhite" >
+                                    Zapamti me
+                                    <input asp-for="Input.RememberMe" />
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Log in</button>
+                        </div>
+                        <div class="form-group">
+                            <p>
+                                <a style="color:antiquewhite" id="forgot-password" asp-page="./ForgotPassword">Zaboravili ste lozinku?</a>
+                            </p>
+                            <p>
+                                <a style="color:antiquewhite" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Registrujte se kao novi korisnik.</a>
+                            </p>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+        </div>
+        </body>
+
+        @section Scripts {
+            <partial name="_ValidationScriptsPartial" />
+        }

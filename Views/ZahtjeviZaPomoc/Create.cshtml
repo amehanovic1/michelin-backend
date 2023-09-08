@@ -1,0 +1,37 @@
+﻿@model Michelin.Models.ZahtjevZaPomoc
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<body class="backgroundimg">
+    <div class="container">
+        <h1 style="color:antiquewhite">Prijavite problem</h1>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label style="color:antiquewhite" class="form-label mt-4">Kategorija: </label>
+                        <select asp-for="kategorija" class="form-control" asp-items="Html.GetEnumSelectList<KategorijaZahtjevaZaPomoc>()"></select>
+                        <span asp-validation-for="kategorija" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label style="color:antiquewhite" >Opišite problem detaljnije: </label> <br />
+                        
+                        <textarea id="sadrzaj" name="sadrzaj" rows="10" style="width:300px">
+                        </textarea>
+                        <span asp-validation-for="sadrzaj" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Prijavi" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </body>
+
+      
+

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Michelin.Models.Korisnik>
+@{
+    ViewData["Title"] = "NadjiKorisnika";
+}
+
+<body class="backgroundimg">
+    <div class="container">
+        <h1 style="color:antiquewhite">Svi korisnici</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="color:antiquewhite">
+                        @Html.DisplayNameFor(model => model.ime)
+                    </th>
+                    <th style="color:antiquewhite">
+                        @Html.DisplayNameFor(model => model.prezime)
+                    </th>
+                    <th style="color:antiquewhite">
+                        @Html.DisplayNameFor(model => model.aktivan)
+                    </th>
+                    <th style="color:antiquewhite">
+                        @Html.DisplayNameFor(model => model.datumAktivacije)
+                    </th>
+                    <th style="color:antiquewhite">
+                        @Html.DisplayNameFor(model => model.datumDeaktivacije)
+                    </th>
+                    <th style="color:antiquewhite">
+                        @Html.DisplayNameFor(model => model.korisnickoIme)
+                    </th>
+                    <th style="color:antiquewhite">
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th style="color:antiquewhite">
+                        @Html.DisplayNameFor(model => model.brojMobitela)
+                    </th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <th style="color:antiquewhite">
+                        @Html.DisplayFor(modelItem => item.ime)
+                    </th>
+                    <th style="color:antiquewhite">
+                        @Html.DisplayFor(modelItem => item.prezime)
+                    </th>
+                    <th style="color:antiquewhite">
+                        @Html.DisplayFor(modelItem => item.aktivan)
+                    </th>
+                    <th style="color:antiquewhite">
+                        @Html.DisplayFor(modelItem => item.datumAktivacije)
+                    </th>
+                    <th style="color:antiquewhite">
+                        @Html.DisplayFor(modelItem => item.datumDeaktivacije)
+                    </th>
+                    <th style="color:antiquewhite">
+                        @Html.DisplayFor(modelItem => item.korisnickoIme)
+                    </th>
+                    <th style="color:antiquewhite">
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </th>
+                    <th style="color:antiquewhite">
+                        @Html.DisplayFor(modelItem => item.brojMobitela)
+                    </th>
+                    <td>
+                        <a style="color:antiquewhite" asp-controller="Korisnik" asp-action="Details" asp-route-id="@item.Id">Profil</a>
+                        <a style="color:antiquewhite" asp-controller="Korisnik" asp-action="Obrisi" asp-route-id="@item.Id">Obriši</a>
+                    </td>
+                </tr>
+                }
+                </tbody>
+                </table>
+    </div>
+    </body>
+

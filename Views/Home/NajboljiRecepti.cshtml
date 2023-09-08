@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Michelin.Models.Recept>
+
+@{
+    ViewData["Title"] = "NajboljiRecepti";
+}
+
+<body class="backgroundimg">
+    <div class="container">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-svi-tab" asp-action="SviRecepti" asp-controller="Home">Svi recepti</a>
+                <a class="nav-item nav-link active" id="nav-svi-tab" asp-action="NajboljiRecepti" asp-controller="Home">Najbolji recepti</a>
+                <a class="nav-item nav-link active" id="nav-svi-tab" asp-action="Filtriranje" asp-controller="Recept">Pretraga recepata</a>
+            </div>
+        </nav>
+            <table class="table">
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        List<Korisnik> korisnici = ViewBag.korisnici;
+                        var korisnik = korisnici.Find(k => item.autor == k);
+                        ViewBag.korisnik = korisnik;
+                        <partial name="_ReceptiPartial" model="item" />
+                    }
+                </tbody>
+            </table>
+        </table>
+    </div>
+    </body>
+
+<script type="text/javascript">
+    var interval = 60000;
+    setInterval(function(){ update() }, interval);
+
+    function Update() {
+        $.get("/[Home]/azurirajNajboljeRecepte", function ()) {
+            alert("")
+        };
+    }
+</script>

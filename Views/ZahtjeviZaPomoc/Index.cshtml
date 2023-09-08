@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Michelin.Models.ZahtjevZaPomoc>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<body class="backgroundimg">
+    <div class="container">
+        <h1 style="color:antiquewhite">Zahtjevi za pomoć</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="color:antiquewhite">
+                        @Html.DisplayNameFor(model => model.kategorija)
+                    </th>
+                    <th style="color:antiquewhite">
+                        @Html.DisplayNameFor(model => model.sadrzaj)
+                    </th>
+                    <th style="color:antiquewhite">
+                        @Html.DisplayNameFor(model => model.obradjeno)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th style="color:antiquewhite">
+                            @Html.DisplayFor(modelItem => item.kategorija)
+                        </th>
+                        <th style="color:antiquewhite">
+                            @Html.DisplayFor(modelItem => item.sadrzaj)
+                        </th>
+                        <th style="color:antiquewhite">
+                            @Html.DisplayFor(modelItem => item.obradjeno)
+                        </th>
+                        <td >
+                            <a style="color:antiquewhite" asp-action="Details" asp-route-id="@item.id">Detalji</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        </div>
+    </body>

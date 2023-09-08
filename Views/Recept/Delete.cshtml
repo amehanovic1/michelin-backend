@@ -1,0 +1,62 @@
+﻿@model Michelin.Models.Recept
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<body class="backgroundimg">
+    <div class="container">
+        <h3 style="color:antiquewhite">Jeste li sigurni da želite obrisati ovaj recept?</h3>
+        <div>
+
+            <hr />
+            <dl class="row">
+                <dt style="color:antiquewhite" class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.naziv)
+                </dt>
+                <dd style="color:antiquewhite" class="col-sm-10">
+                    @Html.DisplayFor(model => model.naziv)
+                </dd>
+                <dt style="color:antiquewhite" class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.vrijemePripreme)
+                </dt>
+                <dd style="color:antiquewhite" class="col-sm-10">
+                    @Html.DisplayFor(model => model.vrijemePripreme)
+                </dd>
+                <dt style="color:antiquewhite" class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.nacionalnoJelo)
+                </dt>
+                <dd style="color:antiquewhite" class="col-sm-10">
+                    @Html.DisplayFor(model => model.nacionalnoJelo)
+                </dd>
+                <dt style="color:antiquewhite" class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.vrstaJela)
+                </dt>
+                <dd style="color:antiquewhite" class="col-sm-10">
+                    @Html.DisplayFor(model => model.vrstaJela)
+                </dd>
+                <dt style="color:antiquewhite" class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.vegansko)
+                </dt>
+                <dd style="color:antiquewhite" class="col-sm-10">
+                    @Html.DisplayFor(model => model.vegansko)
+                </dd>
+                <dt style="color:antiquewhite" class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.datum)
+                </dt>
+                <dd style="color:antiquewhite" class="col-sm-10">
+                    @Html.DisplayFor(model => model.datum)
+                </dd>
+            </dl>
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="id" />
+                <input type="submit" value="Obriši" asp-route-id="@Model.id" class="btn btn-danger" /> |
+                <a asp-controller="Home" asp-action="SviRecepti">Nazad na listu</a>
+                
+
+            </form>
+        </div>
+        </div>
+    </body>

@@ -1,0 +1,69 @@
+﻿@model Michelin.Models.Recept
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<body class="backgroundimg">
+    <div class="container">
+        <h1 style="color:antiquewhite">Kreirajte recept</h1>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create" method="post" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label style="color:antiquewhite" class="control-label">Naziv: </label>
+                        <input asp-for="naziv" class="form-control" />
+                        <span asp-validation-for="naziv" class="text-danger"></span>
+                    </div>
+                    <div id="uploadSection">
+                        <div class="form-group">
+                            <label style="color:antiquewhite">Odaberite sliku: </label>
+                            <input type="file" id="file" name="file" />
+                            <span asp-validation-for="slika" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label style="color:antiquewhite">Kuhinja: </label>
+                        <select asp-for="nacionalnoJelo" class="form-control" asp-items="Html.GetEnumSelectList<NacionalnoJelo>()"></select>
+                        <span asp-validation-for="nacionalnoJelo" class="text-danger"></span>
+                        </br>
+                        <div class="form-group">
+                            <label style="color:antiquewhite">Vrsta jela: </label>
+                            <select asp-for="vrstaJela" class="form-control" asp-items="Html.GetEnumSelectList<VrstaJela>()"></select>
+                            <span asp-validation-for="vrstaJela" class="text-danger"></span>
+                        </div>
+                        <div class="form-group form-check">
+                            <label style="color:antiquewhite" class="form-check-label">
+                                <input class="form-check-input" asp-for="vegansko" /> Vegansko
+                                <span asp-validation-for="vegansko" class="text-danger"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label style="color:antiquewhite">Opišite način pripreme: </label> <br />
+                        <textarea id="opis" name="opis" rows="10" style="width:1000px"></textarea>
+                        <span asp-validation-for="nacinPripreme.opisPripreme" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label style="color:antiquewhite" class="control-label">Vrijeme Pripreme</label>
+                        <input asp-for="vrijemePripreme" class="form-control" />
+                        <span asp-validation-for="vrijemePripreme" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Spremi" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a  style="color:antiquewhite" asp-action="Index">Nazad</a>
+        </div>
+        </div>
+    </body>
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }

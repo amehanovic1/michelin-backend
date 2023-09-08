@@ -1,0 +1,35 @@
+﻿@model Michelin.Models.Recept
+
+<h4>Sastojak</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="DodajSastojake" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div type="form-group">
+                <input asp-for="id" type="hidden" />
+            </div>
+            <div type="form-group">
+                <label style="color:antiquewhite">Naziv sastojka: </label> <br />
+                <input type="text" id="nazivSastojka" name="nazivSastojka" /><br />
+            </div>
+            <div type="form-group">
+                <label style="color:antiquewhite">Količina sastojka: </label> <br />
+                <input type="text" id="kolicina" name="kolicina" /><br />
+            </div>
+            <div type="form-group">
+                <label style="color:antiquewhite">Mjerna jedinica: </label>
+                <select id="mjerna" name="mjerna" class="form-control" asp-items="Html.GetEnumSelectList<MjernaJedinica>()"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit"  value="Dodaj" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

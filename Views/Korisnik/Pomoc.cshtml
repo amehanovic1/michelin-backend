@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "Pomoc";
+}
+
+<body class="backgroundimg">
+    <div class="container">
+        <h1 style="color:antiquewhite">Često postavljena pitanja</h1>
+        <br />
+        <h2 style="color:antiquewhite">Ovdje stoji prvo pitanje?</h2>
+        <br />
+        <th style="color:antiquewhite"> Odgovor na prvo pitanje.</th>
+        <br />
+        <br />
+        <h2 style="color:antiquewhite">Ovdje stoji drugo pitanje?</h2>
+        <br />
+        <th style="color:antiquewhite"> Odgovor na drugo pitanje.</th>
+        <br />
+        <br />
+        <input type="button"
+               value="Prijavi problem"
+               onclick="location.href='@Url.Action("Create", "ZahtjeviZaPomoc")'" />
+        </div>
+    </body>
+
+
