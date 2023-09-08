@@ -102,13 +102,13 @@ namespace Michelin.Models
         }
 
 
-        public void dodajOmiljeniRecept(Recept recept)
+        public void DodajUOmiljene(Recept recept)
         {
             if (omiljeniRecepti == null) omiljeniRecepti = new string("");
             omiljeniRecepti += " " + recept.id;
         }
 
-        public void ukloniOmiljeniRecept(Recept recept)
+        public void UkloniIzOmiljenih(Recept recept)
         {
             string[] ids = omiljeniRecepti.Split(" ");
             string novi = "";
