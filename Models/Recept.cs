@@ -145,19 +145,15 @@ namespace Michelin.Models
 			foreach(Ocjena ocjena in ocjene)
             {
 				sumaOcjena += ocjena.vrijednost;
-                
             }
 
 			return sumaOcjena / ocjene.Count;
         }
 
-
-
-
         //prima listu recepata koju treba filtirati tako da zadovoljava da atribut vrstaJela se nalazi
         //u proslijedjenoj listi i atribut nacionalnoJelo se nalazi u odgovarajucoj listi
         //te da je vrijeme pripreme do proslijedjenog parametra (npr ako je proslijedjeno 50, priprema mora biti <= 50min)
-        public static List<Recept> DajRecepte(List<Recept> recepti, List<VrstaJela> vrstaJela,
+		public static List<Recept> DajRecepte(List<Recept> recepti, List<VrstaJela> vrstaJela,
 			List<NacionalnoJelo> nacionalnoJelo, int vrijemePripreme)
         {
 			List<Recept> rez = new List<Recept>();
@@ -192,7 +188,8 @@ namespace Michelin.Models
         }
 
         //vraca sve recepte koji u nazivu sadrze proslijedjeni string
-        public static List<Recept> FiltrirajReceptePoNazivu(List<Recept> recepti, String trazeniNaziv)
+        public static List<Recept> FiltrirajReceptePoNazivu(List<Recept> recepti, 
+			String trazeniNaziv)
         {
 			List<Recept> filtriraniReceptiPoNazivu = new List<Recept>();
 
