@@ -48,7 +48,7 @@ namespace Michelin.Models
 
         public string omiljeniRecepti { get; set; } = new string("");
 
-		public string profilnaSlika {get; set;}
+        public string profilnaSlika {get; set;}
 
         #endregion
 
@@ -70,21 +70,6 @@ namespace Michelin.Models
         #endregion
 
         #region Metode
-        public List<Recept> pretvoriStringUListu(List<Recept> recepti)
-        {
-			
-			List<Recept> omiljeni = new List<Recept>();
-			if (omiljeniRecepti == null) return omiljeni;
-			string[] ids = omiljeniRecepti.Split(" ");
-
-			foreach(string id in ids)
-            {
-				omiljeni.Add(recepti.Find(r=>r.id==id));
-            }
-			
-			return omiljeni;
-        }
-	 
 
 		public List<Recept> dajKorisnikoveRecepte(List<Recept> sviRecepti)
         {
@@ -101,7 +86,6 @@ namespace Michelin.Models
 			return recepti;
         }
 
-
         public void DodajUOmiljene(Recept recept)
         {
             if (omiljeniRecepti == null) omiljeniRecepti = new string("");
@@ -112,6 +96,7 @@ namespace Michelin.Models
         {
             string[] ids = omiljeniRecepti.Split(" ");
             string novi = "";
+
             foreach (string id in ids)
             {
                 if (id == recept.id) continue;
@@ -184,7 +169,23 @@ namespace Michelin.Models
 }
 
 
-/*public void dodajUOmiljene(Recept recept)
+/*
+        public List<Recept> pretvoriStringUListu(List<Recept> recepti)
+        {
+			
+			List<Recept> omiljeni = new List<Recept>();
+			if (omiljeniRecepti == null) return omiljeni;
+			string[] ids = omiljeniRecepti.Split(" ");
+
+			foreach(string id in ids)
+            {
+				omiljeni.Add(recepti.Find(r=>r.id==id));
+            }
+			
+			return omiljeni;
+        }
+	 
+public void dodajUOmiljene(Recept recept)
 {
     omiljeniRecepti.Add(recept);
 }
@@ -192,5 +193,6 @@ namespace Michelin.Models
 public void ukloniIzOmiljenih(Recept recept)
 {
     omiljeniRecepti.Remove(recept);
-}*/
+}
+*/
 //public List<Recept> omiljeniRecepti { get; set; }
